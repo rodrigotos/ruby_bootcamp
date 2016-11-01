@@ -58,13 +58,13 @@ begin
       instructor_params[:age] = gets.chomp
       create_instructor instructor_params
     when "2"
-      if @instructor.any?
+      if @instructors.any?
         puts "Please type the subject of the lesson"
         subject = gets.chomp.downcase
         puts "Please select the instructor(type the index)"
         print_instructors
         instructor_index = gets.chomp.to_i
-        create_lesson subject, find_instructor(@instructors[instructor_index])
+        create_lesson subject, @instructors[instructor_index]
       else
         "Must exist al least one instructor so you can create a lesson"
       end
