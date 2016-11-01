@@ -1,5 +1,6 @@
-class Instructor
-  attr_accessor :first_name, :last_name, :nickname, :age, :strength
+require "./person"
+class Instructor < Person
+  attr_accessor :nickname, :strength
   #def initialize(first_name = "no name", last_name ="no last name", nickname = "undefined", age = 1000, strength = "being lazy")
   #  @first_name = first_name
   #  @last_name = last_name
@@ -9,11 +10,9 @@ class Instructor
   #end
 
   def initialize(params = {})
-    @first_name = params[:first_name] ? params[:first_name] : "no name"
-    @last_name = [:last_name] ? params[:last_name] : "no last name"
-    @nickname = [:nickname] if params[:nickname]
-    @age = [:age] ? params[:age] : 1000
-    @strength = [:strength] ? params[:strength] : "being lazy"
+    super
+    @nickname = params[:nickname] if params[:nickname]
+    @strength = params[:strength] ? params[:strength] : "being lazy"
   end
 
   def claim_your_strength
